@@ -11,3 +11,8 @@ const userSchema = new mongooseSchema({
 });
 
 module.exports = mongoose.model('User',userSchema);
+
+userSchema.methods.addNewWallet = function() {
+  this.cart = { items: [] };
+  return this.save();
+};

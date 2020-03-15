@@ -44,12 +44,9 @@ exports.signup = (req, res, next)=>{
                 {$push: {"wallets": wallet}},
                 {safe: true, upsert: true, new : true},
                 function(err, model) {
-                    console.log(err);
+                  console.log("User and Wallet created.")
                 }
-            );
-              // const updateduser = User.findByIdAndUpdate({wallets: updatedwallet}).populate(wallets);
-              console.log("User and Wallet created.")
-            });
+            );    });
           }).catch((err=>{
             console.log(err);
           }));
@@ -89,21 +86,3 @@ exports.login = (req, res, next)=>{
       })
 });
 };
-// user = new User(
-//   {
-//     name: "Anubhav Dhuliya",
-//     email: "dhuliya.a@gmail.com",
-//     phone_no: "9899863458",
-//     password: "Passwerd"
-//   });
-
-//   user.save().then((user)=>{
-//     wallet = new Wallet({
-//       user_id: user._id;
-//     });
-//     wallet.save().then((wallet)=>{
-//       console.log("User and Wallet created.")
-//     });
-//   }).catch((err=>{
-//     console.log(err);
-//   }));
